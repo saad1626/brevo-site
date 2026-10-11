@@ -1,0 +1,18 @@
+# public_html/.htaccess
+# This file tells the Hostinger web server where to send each URL.
+
+Options -Indexes
+RewriteEngine On
+
+# 1. Every /api/... request goes to api/index.php
+#    Example: /api/blogs/my-post  ->  api/index.php?path=blogs/my-post
+RewriteRule ^api/(.*)$ api/index.php?path=$1 [QSA,L]
+
+# 2. If the URL is a real file or folder (image, CSS, JS), send it as it is
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# 3. Everything else (/blog, /about, /dashboard ...) goes to the React app.
+#    React Router then shows the right page, or the 404 page.
+RewriteRule ^ index.html [L]

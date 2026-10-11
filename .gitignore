@@ -1,0 +1,5 @@
+node_modules
+public_html/data/db.json
+public_html/uploads/*
+!public_html/uploads/.gitkeep
+!public_html/uploads/.htaccess

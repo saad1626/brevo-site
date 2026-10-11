@@ -1,0 +1,843 @@
+/* index.css
+   Styles for the public website.
+
+   IMPORTANT: colors are NOT written directly. We use CSS variables like var(--primary).
+   The dashboard changes these variables, so the whole site changes color at once.
+   The values below are only the starting values (used before settings load). */
+
+:root {
+  --primary: #E67E00;
+  --primaryText: #FFFFFF;
+  --navbarBg: #FFFFFF;
+  --navbarText: #4B5563;
+  --footerBg: #FFFFFF;
+  --footerText: #374151;
+  --heading: #1F2A44;
+  --text: #4B5563;
+  --lightSection: #F4F5F8;
+  --darkSection: #2B3240;
+
+  --border: #E5E7EB;
+  --radius: 4px;
+  --font: "Ubuntu", "Segoe UI", Arial, sans-serif;
+}
+
+/* ---------- Basic reset ---------- */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font);
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--text);
+  background: #FFFFFF;
+}
+
+h1, h2, h3, h4 {
+  color: var(--heading);
+  line-height: 1.3;
+  margin: 0 0 12px;
+}
+
+p {
+  margin: 0 0 16px;
+}
+
+a {
+  color: var(--primary);
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* Keyboard users can see where they are */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+/* Hides text visually but screen readers still read it */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+/* ---------- Layout helpers ---------- */
+
+.container {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.section {
+  padding: 80px 0;
+}
+
+.section-light {
+  background: var(--lightSection);
+}
+
+.section-dark {
+  background: var(--darkSection);
+  color: #E5E7EB;
+}
+
+.section-dark h2,
+.section-dark h3,
+.section-dark h4 {
+  color: #FFFFFF;
+}
+
+.section-dark a {
+  color: #FFFFFF;
+}
+
+.two-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 56px;
+  align-items: center;
+}
+
+.three-columns {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  margin: 40px 0;
+}
+
+.center-text {
+  text-align: center;
+}
+
+.narrow {
+  max-width: 620px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.button-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.center-row {
+  justify-content: center;
+}
+
+/* Keeps the footer at the bottom, even when a page is short */
+.page-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.page-wrapper main {
+  flex: 1;
+}
+
+/* ---------- Navbar ---------- */
+
+.navbar {
+  background: var(--navbarBg);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.navbar-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 68px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+
+.logo-img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+
+.logo-text {
+  font-weight: 700;
+  color: var(--heading);
+}
+
+.nav-links {
+  display: flex;
+  gap: 28px;
+}
+
+.nav-links a {
+  color: var(--navbarText);
+  text-decoration: none;
+  font-size: 15px;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: var(--primary);
+}
+
+.menu-button {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--navbarText);
+  cursor: pointer;
+}
+
+/* ---------- Footer ---------- */
+
+.footer {
+  background: var(--footerBg);
+  color: var(--footerText);
+  border-top: 1px solid var(--border);
+  padding: 28px 0;
+  font-size: 14px;
+}
+
+.footer-inner {
+  text-align: center;
+}
+
+.footer p {
+  margin: 0;
+}
+
+.footer a {
+  color: var(--footerText);
+}
+
+.footer-contact {
+  margin-top: 4px;
+  opacity: 0.85;
+}
+
+/* ---------- Buttons (ONE place controls all buttons) ---------- */
+
+.btn {
+  display: inline-block;
+  padding: 10px 22px;
+  border: 2px solid transparent;
+  border-radius: var(--radius);
+  font-family: var(--font);
+  font-size: 15px;
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.btn:hover {
+  opacity: 0.88;
+}
+
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: var(--primaryText);
+}
+
+.btn-dark {
+  background: var(--heading);
+  color: #FFFFFF;
+}
+
+.btn-outline {
+  background: transparent;
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.btn-full {
+  width: 100%;
+}
+
+/* ---------- Headings ---------- */
+
+.section-heading {
+  margin-bottom: 20px;
+}
+
+.section-heading.center {
+  text-align: center;
+  max-width: 640px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.section-label {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--heading);
+  margin-bottom: 6px;
+}
+
+.section-dark .section-label {
+  color: var(--primary);
+}
+
+.section-heading h2 {
+  font-size: 28px;
+}
+
+.hero-title {
+  font-size: 40px;
+  line-height: 1.15;
+  margin-bottom: 24px;
+}
+
+.sub-title {
+  margin-top: 28px;
+}
+
+/* ---------- Home: hero ---------- */
+
+.hero-features {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+  margin-top: 28px;
+  font-size: 14px;
+}
+
+.hero-features > div:first-child {
+  border-right: 2px solid var(--primary);
+  padding-right: 24px;
+}
+
+.hero-features h3 {
+  font-size: 17px;
+}
+
+/* ---------- Images ---------- */
+
+.image-box {
+  width: 100%;
+  object-fit: cover;
+  border-radius: var(--radius);
+}
+
+.image-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: #D9DDE4;
+  color: #6B7280;
+  font-size: 14px;
+  text-align: center;
+}
+
+.tall-image {
+  height: 440px;
+}
+
+.wide-image {
+  height: 320px;
+}
+
+/* ---------- Feature cards ---------- */
+
+.feature-card {
+  text-align: center;
+}
+
+.feature-card-image {
+  height: 180px;
+}
+
+.feature-card-body {
+  background: #FFFFFF;
+  margin: -32px 20px 0;
+  padding: 20px 16px 0;
+  position: relative;
+  font-size: 14px;
+}
+
+.feature-card-body h3 {
+  font-size: 18px;
+}
+
+/* ---------- Bullet points ---------- */
+
+.bullet-list {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.bullet-point {
+  display: flex;
+  gap: 18px;
+}
+
+.bullet-dot {
+  flex-shrink: 0;
+  width: 12px;
+  height: 12px;
+  margin-top: 6px;
+  border-radius: 50%;
+  background: var(--primary);
+}
+
+.bullet-point h4 {
+  font-size: 17px;
+  margin-bottom: 6px;
+}
+
+.bullet-point p {
+  font-size: 15px;
+  margin: 0;
+}
+
+.bullet-grid {
+  align-items: start;
+  row-gap: 36px;
+  margin-top: 32px;
+}
+
+/* ---------- Icon items ---------- */
+
+.icon-item {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.icon-square {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  background: var(--primary);
+  color: var(--primaryText);
+  border-radius: var(--radius);
+}
+
+.icon-item h4 {
+  font-size: 17px;
+  margin-bottom: 4px;
+}
+
+.icon-item-text {
+  font-size: 14px;
+}
+
+.icon-item-text a {
+  color: var(--text);
+}
+
+.stats-row {
+  margin-top: 64px;
+}
+
+.contact-list {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.contact-list-row {
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 32px;
+  margin-bottom: 24px;
+}
+
+/* ---------- Pricing and testimonial ---------- */
+
+.pricing-image-wrap {
+  position: relative;
+  padding-bottom: 120px;
+}
+
+.testimonial {
+  position: absolute;
+  left: 32px;
+  right: 32px;
+  bottom: 0;
+  margin: 0;
+  padding: 24px;
+  background: #FFFFFF;
+  border: 1px solid var(--border);
+}
+
+.testimonial blockquote {
+  margin: 10px 0;
+  font-style: italic;
+  font-size: 15px;
+}
+
+.testimonial figcaption {
+  font-weight: 700;
+  color: var(--heading);
+}
+
+.stars {
+  display: flex;
+  gap: 4px;
+  color: var(--primary);
+}
+
+.price {
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--heading);
+  margin: 10px 0;
+}
+
+/* ---------- Page hero (Blog, About, Contact) ---------- */
+
+.page-hero {
+  background: var(--lightSection);
+  padding: 72px 0;
+}
+
+.page-hero-inner {
+  max-width: 720px;
+  text-align: center;
+}
+
+.page-hero h1 {
+  font-size: 34px;
+  margin: 0;
+}
+
+.page-hero-text {
+  margin-top: 20px;
+}
+
+/* ---------- Blog list ---------- */
+
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+
+.blog-card {
+  display: flex;
+  flex-direction: column;
+  background: #FFFFFF;
+  border-bottom: 3px solid var(--lightSection);
+}
+
+.blog-card > a {
+  text-decoration: none;
+}
+
+.blog-card-image {
+  height: 200px;
+}
+
+.blog-card-body {
+  padding: 22px 6px;
+}
+
+.blog-category {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 8px;
+}
+
+.blog-card-title {
+  font-size: 21px;
+}
+
+.blog-card-title a {
+  color: var(--heading);
+  text-decoration: none;
+}
+
+.blog-card-title a:hover {
+  color: var(--primary);
+}
+
+.blog-meta {
+  font-size: 13px;
+  color: #6B7280;
+}
+
+.blog-excerpt {
+  font-size: 15px;
+}
+
+.read-more {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--heading);
+}
+
+/* ---------- Single blog post ---------- */
+
+.article {
+  max-width: 740px;
+}
+
+.article h1 {
+  font-size: 36px;
+}
+
+.article-image {
+  height: 380px;
+  margin: 24px 0 32px;
+}
+
+.back-link {
+  display: inline-block;
+  margin-bottom: 24px;
+  font-size: 14px;
+}
+
+/* ---------- About ---------- */
+
+.quote {
+  margin: 24px 0;
+  padding-left: 20px;
+  border-left: 3px solid var(--primary);
+  font-style: italic;
+}
+
+.white-box {
+  background: #FFFFFF;
+  color: var(--text);
+  padding: 36px;
+}
+
+/* ---------- Forms ---------- */
+
+.contact-form,
+.subscribe-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.line-field {
+  display: flex;
+  flex-direction: column;
+  font-size: 15px;
+  color: var(--heading);
+}
+
+.line-field input,
+.line-field textarea {
+  border: none;
+  border-bottom: 2px solid var(--primary);
+  padding: 8px 0;
+  font-family: var(--font);
+  font-size: 15px;
+  background: transparent;
+}
+
+.two-columns-small {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.subscribe-form input {
+  padding: 12px;
+  border: 1px solid #C7CBD3;
+  border-radius: var(--radius);
+  font-family: var(--font);
+  font-size: 15px;
+}
+
+.required {
+  color: #DC2626;
+}
+
+.alert {
+  margin: 0;
+  padding: 10px 14px;
+  border-radius: var(--radius);
+  font-size: 14px;
+}
+
+.alert-success {
+  background: #ECFDF3;
+  color: #166534;
+}
+
+.alert-error {
+  background: #FEF2F2;
+  color: #B91C1C;
+}
+
+.social-row {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin-top: 32px;
+}
+
+.social-links {
+  display: flex;
+  gap: 10px;
+}
+
+/* ---------- 404 page ---------- */
+
+.not-found {
+  text-align: center;
+  padding: 120px 0;
+}
+
+.not-found-code {
+  font-size: 120px;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--primary);
+  margin-bottom: 8px;
+}
+
+/* ---------- Loader and server error ---------- */
+
+.loader {
+  display: flex;
+  justify-content: center;
+  padding: 80px 0;
+}
+
+.loader-spinner {
+  width: 36px;
+  height: 36px;
+  border: 4px solid var(--border);
+  border-top-color: var(--primary);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .loader-spinner {
+    animation-duration: 3s;
+  }
+}
+
+.server-error {
+  max-width: 520px;
+  margin: 120px auto;
+  padding: 0 20px;
+  text-align: center;
+}
+
+/* ---------- Tablet ---------- */
+
+@media (max-width: 900px) {
+  .two-columns {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .three-columns,
+  .blog-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* ---------- Phone ---------- */
+
+@media (max-width: 640px) {
+  .section {
+    padding: 56px 0;
+  }
+
+  .hero-title {
+    font-size: 30px;
+  }
+
+  .three-columns,
+  .blog-grid,
+  .hero-features,
+  .two-columns-small {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-features > div:first-child {
+    border-right: none;
+    padding-right: 0;
+  }
+
+  .tall-image {
+    height: 300px;
+  }
+
+  /* Mobile menu: links hidden until the button is pressed */
+  .menu-button {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 68px;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    gap: 0;
+    background: var(--navbarBg);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  .nav-links a {
+    padding: 14px 20px;
+  }
+
+  .testimonial {
+    position: static;
+    margin-top: 16px;
+  }
+
+  .pricing-image-wrap {
+    padding-bottom: 0;
+  }
+
+  .not-found-code {
+    font-size: 80px;
+  }
+}

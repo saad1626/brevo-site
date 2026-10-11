@@ -1,0 +1,58 @@
+{
+  "settings": {
+    "siteName": "Brevo Email Marketing",
+    "logo": "",
+    "email": "admin@marketingtop.site",
+    "supportEmail": "contact@marketingtop.site",
+    "phone": "+92 300 1234567",
+    "facebook": "https://facebook.com",
+    "twitter": "https://twitter.com",
+    "youtube": "https://youtube.com",
+    "colors": {
+      "primary": "#E67E00",
+      "primaryText": "#FFFFFF",
+      "navbarBg": "#FFFFFF",
+      "navbarText": "#4B5563",
+      "footerBg": "#FFFFFF",
+      "footerText": "#374151",
+      "heading": "#1F2A44",
+      "text": "#4B5563",
+      "lightSection": "#F4F5F8",
+      "darkSection": "#2B3240"
+    }
+  },
+  "blogs": [
+    {
+      "id": "1",
+      "title": "Brevo Free Plan Guide: Send 9,000 Emails Every Month",
+      "slug": "brevo-free-plan-guide-send-9-000-emails-every-month",
+      "category": "Email Marketing",
+      "author": "Jerry",
+      "image": "",
+      "content": "When you are just starting a business or a blog, every single dollar counts. You know you need email marketing, but paying a monthly fee before you have made any profit is stressful.\n\nThat is exactly why the Brevo free plan is so useful. You can send up to 9,000 emails per month, with a daily limit, without paying anything.\n\nIn this guide we look at what the free plan includes, where its limits are, and when it makes sense to upgrade.",
+      "date": "2026-07-24T10:00:00.000Z"
+    },
+    {
+      "id": "2",
+      "title": "Professional Email Breakdown: Core Sections and Their Purpose",
+      "slug": "professional-email-breakdown-core-sections-and-their-purpose",
+      "category": "Email Marketing",
+      "author": "Jerry",
+      "image": "",
+      "content": "We have all been there: a blank screen, a blinking cursor, and an important email to write.\n\nA professional email has a few clear parts: the subject line, the greeting, the body, the call to action and the signature. Each one has a job.\n\nIn this post we go through every part and show what a good version looks like.",
+      "date": "2026-07-24T11:00:00.000Z"
+    },
+    {
+      "id": "3",
+      "title": "5 Segmentation Strategies in Brevo That Increase Conversions",
+      "slug": "5-segmentation-strategies-in-brevo-that-increase-conversions",
+      "category": "Email Marketing",
+      "author": "Jerry",
+      "image": "",
+      "content": "Sending the same email to your whole list is the fastest way to get ignored.\n\nSegmentation means splitting your contacts into smaller groups, so each group gets messages that fit them.\n\nHere are five simple segments you can build in Brevo today: new subscribers, active buyers, inactive contacts, location based groups and interest based groups.",
+      "date": "2026-07-24T12:00:00.000Z"
+    }
+  ],
+  "messages": [],
+  "subscribers": []
+}
