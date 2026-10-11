@@ -1,4 +1,5 @@
 node_modules
+dist
 public_html/data/db.json
 public_html/uploads/*
 !public_html/uploads/.gitkeep

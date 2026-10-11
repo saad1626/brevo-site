@@ -5,8 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "prebuild": "node -e \"require('fs').rmSync('public_html/assets',{recursive:true,force:true})\"",
-    "build": "vite build"
+    "prebuild": "node -e \"require('fs').rmSync('public_html/assets',{recursive:true,force:true}); require('fs').rmSync('dist',{recursive:true,force:true})\"",
+    "build": "vite build && node -e \"require('fs').cpSync('public_html', 'dist', {recursive:true})\""
   },
   "dependencies": {
     "lucide-react": "0.441.0",
